@@ -1,0 +1,28 @@
+
+<h1>{{ title }}</h1>
+
+<div class="form-group">
+  <label for="name">MyName</label>
+</div>
+{{ nom }}
+
+<input  
+  id="name" 
+  [(ngModel)]="nom" 
+  type="text" 
+  placeholder="Your name" 
+  class="form-control">
+  
+  <button (click)="ajouter()" class="btn" [class.btn-success]="courses.length > 5"> 
+    <i class="fa fa-plus"></i> Add
+  </button>
+
+<ul>
+  <li *ngFor="let course of courses">
+    {{ course }}
+
+    <button (click)="delete(course)" class="btn btn-danger btn-sm"> 
+      <i class="fa fa-trash"></i> </button>
+  </li>
+</ul>
+
