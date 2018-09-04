@@ -7,13 +7,19 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { FormsModule } from '@angular/forms';
+import { ResumePipe } from './resume.pipe';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { PanelComponent } from './panel/panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ResumePipe,
+    FavoriteComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,

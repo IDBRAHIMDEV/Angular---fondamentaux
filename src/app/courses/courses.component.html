@@ -1,17 +1,19 @@
 
-<h1>{{ title }}</h1>
-
+<h1 [style.color]="etat ? 'blue' : 'red'">{{ title }}</h1>
+<button class="btn" (click)="change()">Toggle</button>
 <div class="form-group">
   <label for="name">MyName</label>
 </div>
 {{ nom }}
 
-<input  
+<input
+  #myName  
   id="name" 
   [(ngModel)]="nom" 
   type="text" 
   placeholder="Your name" 
-  class="form-control">
+  class="form-control"
+  (keyup.control.arrowup)="add(myName)">
   
   <button (click)="ajouter()" class="btn" [class.btn-success]="courses.length > 5"> 
     <i class="fa fa-plus"></i> Add
@@ -24,5 +26,14 @@
     <button (click)="delete(course)" class="btn btn-danger btn-sm"> 
       <i class="fa fa-trash"></i> </button>
   </li>
+</ul>
+
+
+<ul>
+  <li>{{ course.title | lowercase }}</li>
+  <li>{{ course.avis | number:'1.2-2' }}</li>
+  <li>{{ course.prix | currency:'EUR':'symbol' }}</li>
+  <li>{{ course.datePublication | date:'yyyy-MM-dd' }}</li>
+  <li>{{ course.content | resume:2 }}</li>
 </ul>
 
