@@ -1,0 +1,51 @@
+
+
+<div class="row">
+  <div class="col-6 mx-auto">
+    
+    <h1>New product</h1>
+    
+    <form #f="ngForm" (ngSubmit)="send(f)">
+
+    <div class="form-group">
+      <label for="firstName"></label>
+      <input required minlength="3" maxlength="10" pattern="[a-zA-Z0-9]*" ngModel #firstName="ngModel" (change)="log(firstName)" name="firstname" placeholder="Your Firstname" type="text" class="form-control" id="fistName">
+      <div class="alert alert-danger"
+       *ngIf="firstName.invalid && firstName.touched"
+      >
+        <div *ngIf="firstName.errors.required">ce champ est obligatoire !</div>
+        <div *ngIf="firstName.errors.minlength">ce champ doit avoir au moins 3 chars !</div>  
+        <div *ngIf="firstName.errors.pattern">ce champ ne respect pas le pattern</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName"></label>
+        <input name="lastname" ngModel placeholder="Your Lastname" type="text" class="form-control" id="lastName">
+    </div>
+    
+    <div class="form-group">
+      <select name="contact" ngModel id="contact" class="form-control">
+        <option value="">Séléctionner un type de contact</option>
+        <option [value]="contact" *ngFor="let contact of contacts">
+          {{ contact }}
+        </option>
+      </select>
+    </div>
+
+     <div>
+       <input type="checkbox" ngModel name="subscribe" id="subscribe">
+       S'abonner
+     </div>
+    
+     <div>
+       <input type="radio" ngModel name="genre" id="male" value="1"> Male
+       <input type="radio" ngModel name="genre" id="femele" value="2"> Femele
+     </div>
+
+
+     <button type="submit"  
+             class="btn btn-primary btn-block" >Send</button>
+    </form>
+  </div>
+</div>

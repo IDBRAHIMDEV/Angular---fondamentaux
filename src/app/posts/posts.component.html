@@ -1,0 +1,51 @@
+  <div class="row">
+    <div class="col-6 mx-auto text-right">
+      <button class="btn btn-sm btn-primary" (click)="etat = !etat">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+
+ <div class="row" *ngIf="etat">
+   <div class="col-6 mx-auto">
+      
+    <h1>New Post</h1>
+       <div class="form-group">
+         <label for="title">Title</label>
+         <input [(ngModel)]="post.title" type="text" class="form-control" id="title">
+       </div>
+
+       <div class="form-group">
+          <label for="body">Body</label>
+          <textarea [(ngModel)]="post.body" class="form-control" name="body" id="body" rows="4"></textarea>
+        </div>
+
+        <button *ngIf="!operation" class="btn btn-success btn-block"
+        (click)="savePost()">Save</button>
+
+        <button *ngIf="operation" class="btn btn-warning btn-block"
+        (click)="updatePost()">Update</button>
+
+   </div>
+ </div> 
+
+ <div class="row">
+   <div class="col-8 mx-auto">
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let post of myPosts; index as i">
+        <h3>{{ post.title }}</h3>
+        <em>{{ post.body }}</em>
+
+        <button class="btn btn-warning" (click)="editPost(post)">
+          <i class="fa fa-pencil"></i>
+        </button>
+        <button class="btn btn-danger ml-2" (click)="deletePost(post.id, i)">
+          <i class="fa fa-trash"></i>
+        </button>
+        
+      </li>
+    </ul>
+
+   </div>
+ </div>
