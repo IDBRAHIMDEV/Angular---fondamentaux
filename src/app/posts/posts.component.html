@@ -36,7 +36,10 @@
       <li class="list-group-item" *ngFor="let post of myPosts; index as i">
         <h3>{{ post.title }}</h3>
         <em>{{ post.body }}</em>
-
+         
+        <a [routerLink]="['/posts', post.id]" class="btn btn-link">
+          <i class="fa fa-eye"></i>
+        </a>
         <button class="btn btn-warning" (click)="editPost(post)">
           <i class="fa fa-pencil"></i>
         </button>

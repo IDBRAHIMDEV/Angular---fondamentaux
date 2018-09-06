@@ -12,6 +12,10 @@ export class PostService {
    return this.http.get('https://jsonplaceholder.typicode.com/posts');
   }
 
+  getPost(id) {
+    return this.http.get('https://jsonplaceholder.typicode.com/posts/'+id);
+   }
+
   storePost(post) {
     return this.http.post('https://jsonplaceholder.typicode.com/posts', post);
   }
